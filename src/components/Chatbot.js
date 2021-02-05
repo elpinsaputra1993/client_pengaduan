@@ -74,7 +74,7 @@ class Chatbot extends Component {
 
   componentDidMount() {
     this.eventQuery("Welcome"); //Greetings message from the bot when the component first rendered
-    this.getMessages();
+    // this.getMessages();
   }
 
   componentDidUpdate() {
@@ -127,7 +127,12 @@ class Chatbot extends Component {
       messageIdentifier,
       languageCode: navigator.language.substring(0, 2),
     });
+    //res.data.fulfillmentMessages[0].text.text[0]
+    console.log(
+      `res.data.fulfillmentMessages[0].text.text[0] ${res.data.fulfillmentMessages[0].text.text[0]}`
+    );
     console.log(res.status);
+    console.log(res);
     if (res.status == 200) {
       this.setState({ askqu: [...this.state.askqu, sesi] });
       console.log(this.state);
